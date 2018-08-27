@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2">{{vm.titulo}}</h1>
+</div>
+<form>
+    <div class="form-group">
+        <label for="numeroOnibus">Número Ônibus</label>
+        <input type="number" ng-class="{'is-invalid': vm.error.numeroOnibus}" ng-model="vm.registro.numeroOnibus" class="form-control" id="numeroOnibus" placeholder="Digite o número do ônibus">
+        <small ng-if="vm.error.numeroOnibus" class="invalid-feedback">
+            {{vm.error.numeroOnibus[1]}}
+        </small>
+    </div>
+    <div class="form-group">
+        <label for="modelo">Modelo</label>
+        <input type="text" ng-class="{'is-invalid': vm.error.modelo}" ng-model="vm.registro.modelo" class="form-control" id="modelo">
+        <small ng-if="vm.error.modelo" class="invalid-feedback">
+            {{vm.error.modelo[1]}}
+        </small>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="marca">Marca</label>
+            <input type="text" ng-class="{'is-invalid': vm.error.marca}" ng-model="vm.registro.marca" class="form-control" id="marca">
+            <small ng-if="vm.error.marca" class="invalid-feedback">
+                {{vm.error.marca[1]}}
+            </small>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="placaOnibus">Placa</label>
+            <input type="text" ng-class="{'is-invalid': vm.error.placaOnibus}" ng-model="vm.registro.placaOnibus" class="form-control" id="placaOnibus">
+            <small ng-if="vm.error.placaOnibus" class="invalid-feedback">
+                {{vm.error.placaOnibus[1]}}
+            </small>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="motorista">Motorista</label>
+            <input type="text" ng-class="{'is-invalid': vm.error.motorista}" ng-model="vm.registro.motorista" class="form-control" id="motorista">
+            <small ng-if="vm.error.motorista" class="invalid-feedback">
+                {{vm.error.motorista[1]}}
+            </small>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="telefoneMotorista">Telefone Motorista</label>
+            <input type="text" ng-class="{'is-invalid': vm.error.telefoneMotorista}" ng-model="vm.registro.telefoneMotorista" class="form-control" id="telefoneMotorista">
+            <small ng-if="vm.error.telefoneMotorista" class="invalid-feedback">
+                {{vm.error.telefoneMotorista[1]}}
+            </small>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="receitaOnibus">Receita Ônibus</label>
+            <input type="text" ng-class="{'is-invalid': vm.error.receitaOnibus}" ng-model="vm.registro.receitaOnibus" class="form-control" id="receitaOnibus">
+            <small ng-if="vm.error.receitaOnibus" class="invalid-feedback">
+                {{vm.error.receitaOnibus[1]}}
+            </small>
+        </div>
+    </div>
+
+    <button type="button" ng-click="vm.salvar()" class="btn btn-primary">Salvar</button>
+    <a ui-sref="onibusList" class="btn btn-danger">Cancelar</button>
+</form>
