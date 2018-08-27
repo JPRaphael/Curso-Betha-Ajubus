@@ -1,3 +1,2 @@
-# Curso-Betha
-"# Curso-Betha" 
-"# Curso-Betha-Ajubus" 
+Curso disponibilizado pela Betha.
+utilizado swarm
