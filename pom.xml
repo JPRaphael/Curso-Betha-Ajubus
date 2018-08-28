@@ -36,9 +36,9 @@
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <version>${version.wildfly.swarm}</version>
-                <configuration>
-                    <debugPort>5005</debugPort>
-                </configuration>
+                <!--<configuration>-->
+                    <!--<debugPort>5005</debugPort>-->
+                <!--</configuration>-->
                 <executions>
                     <execution>
                         <goals>
