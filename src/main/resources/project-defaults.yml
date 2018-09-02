@@ -3,9 +3,9 @@ swarm:
     data-sources:
       AjuBusDS:
         driver-name: postgresql
-        connection-url: jdbc:postgresql://localhost:5432/ajubus
-        user-name: postgres
-        password: admin
+        connection-url: jdbc:postgres://zlohvsylbeswbi:f6ea51cdfec8b4c57b7d2ffbea5072e02f57d397d82a3a59ec3dce126bb183b7@ec2-54-243-216-33.compute-1.amazonaws.com:5432/dg3ug3q0daoff
+        user-name: zlohvsylbeswbi
+        password: f6ea51cdfec8b4c57b7d2ffbea5072e02f57d397d82a3a59ec3dce126bb183b7
         valid-connection-checker-class-name: org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
         validate-on-match: true
         background-validation: false
