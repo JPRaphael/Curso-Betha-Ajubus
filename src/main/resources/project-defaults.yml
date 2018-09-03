@@ -1,7 +1,7 @@
 swarm:
   datasources:
     data-sources:
-      postgresql-triangular-65278:
+      AjuBusDS:
         driver-name: postgresql
         connection-url: jdbc:postgres://ec2-54-243-216-33.compute-1.amazonaws.com:5432/dg3ug3q0daoff
         user-name: zlohvsylbeswbi
