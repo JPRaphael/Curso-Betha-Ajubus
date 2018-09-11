@@ -28,11 +28,18 @@
                 });
         };
 
+        function findAllViagemExtra() {
+            return $http.get('http://localhost:8080/api/viagem-extra')
+                .then(function (response) {
+                    return response.data;
+                });
+        };
 
         return {
-            findAll: findAll,
+            findAll:findAll,
             findAllOnibus:findAllOnibus,
-            findAllManutencao:findAllManutencao
+            findAllManutencao:findAllManutencao,
+            findAllViagemExtra:findAllViagemExtra
         };
     };
 

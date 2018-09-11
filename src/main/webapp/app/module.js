@@ -58,6 +58,27 @@
             controller: 'GraficoController',
             controllerAs: 'vm'
         })
+        .state({
+            name: 'viagemExtraList',
+            url: '/viagem-extra',
+            templateUrl: '/view/viagemextra/list.html',
+            controller: 'ViagemExtraListController',
+            controllerAs: 'vm'
+        })
+        .state({
+            name: 'viagemExtraNovo',
+            url: '/viagem-extra/novo',
+            templateUrl: '/view/viagemextra/form.html',
+            controller: 'ViagemExtraFormController',
+            controllerAs: 'vm'
+        })
+        .state({
+            name: 'viagemExtraEditar',
+            url: '/viagem-extra/{id}',
+            templateUrl: '/view/viagemextra/form.html',
+            controller: 'ViagemExtraFormController',
+            controllerAs: 'vm'
+        })
         }
 
 })();
