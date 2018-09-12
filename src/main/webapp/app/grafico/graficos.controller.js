@@ -67,6 +67,7 @@
             'packages': ['corechart']
         });
         google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawChart3d);
 
         function drawChart() {
             GraficoService.findAllOnibus()
@@ -105,6 +106,62 @@
                             chart.draw(data, options);
                         });
                 });
+        }
+
+
+        function drawChart3d() {
+            GraficoService.findAllOnibus()
+                .then(function (dado) {
+                    vm.onibus = dado;
+                    GraficoService.findAllManutencao()
+                        .then(function (dado) {
+                            vm.manutencao = dado;
+                            GraficoService.findAllViagemExtra()
+                                .then(function (dado) {
+                                    vm.viagemExtra = dado;
+                                    grafico(vm.onibus, vm.manutencao, vm.viagemExtra);
+                                })
+                        })
+                })
+
+        }
+
+        function grafico(listOnibus, listManutencao, listViagem) {
+            vm.despesa = 0;
+            vm.viagem = 0;
+            var list = [];
+            var anoAtual = new Date().getFullYear();
+            listOnibus.forEach(function (dado) {
+                listManutencao.forEach(function (item) {
+                    if (item.onibus.numeroOnibus === dado.numeroOnibus && new Date(item.dataManutencao).getFullYear() === anoAtual) {
+                        vm.despesa += item.valor;
+                    } else {
+                        vm.despesa = 0;
+                    }
+                });
+                listViagem.forEach(function (item) {
+                    if (item.onibus.numeroOnibus === dado.numeroOnibus && new Date(item.dataViagem).getFullYear() === anoAtual) {
+                        vm.viagem += item.valor;
+                    } else {
+                        vm.viagem = 0;
+                    }
+                })
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Receita', (dado.receitaOnibus * (new Date().getMonth() + 1)) + vm.viagem],
+                    ['Manutenção', vm.despesa]
+                ]);
+
+                var options = {
+                    title: 'Ônibus nº' + dado.numeroOnibus,
+                    is3D: true,
+                };
+
+                $('#linha').append('<div id="piechart_3d' + dado.numeroOnibus + '" style="width: 300px; height: 200px;"></div>')
+                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d' + dado.numeroOnibus));
+                chart.draw(data, options);
+
+            });
         }
 
 

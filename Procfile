@@ -1,1 +1,1 @@
-web:    java -Dswarm.http.port=$PORT -jar target/*.jar
+web:    java -Dswarm.http.port=$PORT -jar target/ajubus-swarm.jar
